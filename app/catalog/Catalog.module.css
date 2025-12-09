@@ -1,0 +1,12 @@
+.sectionCatalog {
+    padding-top: 84px;
+    padding-bottom: 124px;
+}
+
+.cartListBtn {
+    display: block;
+    border: 1px solid #3470ff;
+    border-radius: 12px;
+    padding: 12px 51px;
+    margin: 0 auto;
+}

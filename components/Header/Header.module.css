@@ -1,0 +1,43 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 120px;
+    background: #f2f4f7;
+
+    font-family: "Manrope", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    text-align: center;
+    color: #101828;
+}
+
+.headerSpan {
+    color: #3470ff;
+}
+
+.navigation {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    text-align: center;
+    color: #101828;
+
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.link {
+    color: #101828;
+}
+
+.active {
+    color: #0b44cd;
+}
+
+.navigation li a:hover {
+    color: #0b44cd;
+}

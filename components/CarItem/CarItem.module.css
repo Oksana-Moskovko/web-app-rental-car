@@ -1,0 +1,49 @@
+.carItem {
+    width: 276px;
+    font-family: "Manrope", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #101828;
+}
+
+.carImag {
+    background: linear-gradient(180deg, rgba(18, 20, 23, 0.5) 0%, rgba(18, 20, 23, 0.5) 100%);
+
+    border-radius: 14px;
+    width: 276px;
+    height: 268px;
+}
+
+.carBtm {
+    border-style: none;
+    border-radius: 12px;
+    padding: 12px 0px;
+    width: 276px;
+    background: #3470ff;
+    color: #fff;
+}
+
+.divHeader {
+    padding-top: 16px;
+    display: flex; 
+    justify-content: space-between;
+}
+
+.carModel {
+    color: #3470ff;
+}
+
+.description {
+    text-transform: capitalize;
+    margin-top: 8px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.33333;
+    color: #8d929a;
+    padding-bottom: 28px;
+}
+
+.mileage {
+ text-transform: none;
+}
