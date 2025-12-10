@@ -1,0 +1,77 @@
+.sectionCatalog {
+    padding-top: 84px;
+    padding-bottom: 104px;
+}
+
+.carDiv {
+    display: flex; 
+    /* justify-content: space-between; */
+}
+
+.imageDiv {
+    width: 640px;
+    height: 512px;
+    padding-bottom: 40px;
+}
+
+.carImag {
+    border-radius: 19px; 
+}
+
+.carDetalis {
+    padding-left: 72px;
+    width: 488px;
+}
+.carTitleInfo {
+    padding-bottom: 68px;
+}
+
+.carTitle {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+
+    color: #101828;
+}
+.spanTitle {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #8d929a;
+    padding-left: 16px;
+}
+.carPrise {
+    padding-top: 16px;
+    padding-bottom: 32px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 1.33333;
+    color: #3470ff;
+}
+
+.carDetlInfo{
+    display: flex;
+    flex-direction: column;
+    height: 772px;
+    justify-content: space-between;
+}
+.listTitle{
+    padding-bottom: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #101828;
+}
+.infoList {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #101828;
+}
+.info {
+    padding-bottom: auto;
+}
+
+.infoListLi{
+    padding-bottom: 16px;
+}

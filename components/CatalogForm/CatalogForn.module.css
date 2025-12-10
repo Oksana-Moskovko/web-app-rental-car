@@ -1,0 +1,81 @@
+.formDiv {
+    border: 1px solid #dadde1;
+    border-radius: 10px;
+    padding: 32px;
+    width: 574px;
+}
+
+.form {
+    padding-top: 24px;
+}
+
+.title {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 1.2;
+    color: #101828;
+    padding-bottom: 8px;
+}
+
+.description {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #8d929a;
+}
+
+.labelForm {
+    display: block;
+    padding-bottom: 16px;
+}
+.labelCommen {
+    display: block;
+    padding-bottom: 24px;
+}
+
+.input {
+    border: none;
+    background: #f7f7f7;
+    width: 536px;
+    padding: 12px 20px;
+    border-radius: 12px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #8d929a;
+}
+
+.textarea {
+    border: none;
+    background: #f7f7f7;
+    width: 536px;
+    border-radius: 12px;
+    padding: 12px 20px 56px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #8d929a;
+}
+
+.submitButton {
+    border: none;
+    display: block;
+    margin: 0 auto;
+    border-radius: 12px;
+    background: #3470ff;
+    padding: 12px 51px;
+    width: 156px;
+    height: 44px;
+
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.25;
+    color: #fff;
+}
+
+.submitButton:hover,
+.submitButton:focus {
+    background: #0b44cd;
+}
