@@ -9,10 +9,7 @@ type Props = {
 
 const CatalogDetails = async ({ params }: Props) => {
   const { id } = await params;
-  console.log(id);
-
   const car = await getCar(id);
-  console.log(car);
 
   const mileage = new Intl.NumberFormat("uk-UA").format(car.mileage);
 
@@ -30,7 +27,7 @@ const CatalogDetails = async ({ params }: Props) => {
             />
           </div>
 
-          <CatalogForm />
+          <CatalogForm carId={id} />
         </div>
         <div className={css.carDetalis}>
           <div className={css.carTitleInfo}>

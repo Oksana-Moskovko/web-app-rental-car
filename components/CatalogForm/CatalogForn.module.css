@@ -79,3 +79,7 @@
 .submitButton:focus {
     background: #0b44cd;
 }
+
+.dateWrapper {
+    position: relative;
+}

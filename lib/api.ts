@@ -3,6 +3,13 @@ import axios from 'axios'
 
 axios.defaults.baseURL = 'https://car-rental-api.goit.global/'
 
+export type NewCarData = {
+  name: string;
+  email: string;
+  date: string;
+  comment: string;
+  categoryId: string;
+};
 
 
 export interface CarsListResponse {
