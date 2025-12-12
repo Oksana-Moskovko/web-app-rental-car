@@ -8,12 +8,12 @@ export type Car = {
     description: string,
     fuelConsumption: string,
     engineSize: string,
-    accessories: [],
-    functionalities: [],
+    accessories: string[],
+    functionalities: string[],
     rentalPrice: string,
     rentalCompany: string,
     address: string,
-    rentalConditions: [],
+    rentalConditions: string[],
     mileage: number
 }
 

@@ -49,7 +49,7 @@ export const getCars = async () => {
 // }
 
 export async function getCar(id: string) {
-  const res = await axios.get(`/cars/${id}`);
+  const res = await axios.get<Car>(`/cars/${id}`);
   return res.data;
 }
 
