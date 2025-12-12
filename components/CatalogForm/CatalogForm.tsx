@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useCarDraftStore } from "@/lib/stores/formCarStore";
 import { useMutation } from "@tanstack/react-query";
 import { NewCarData } from "@/lib/api";
+import { Value } from "react-calendar/dist/shared/types.js";
 
 const calendarProps = {
   next2Label: null,
@@ -25,9 +26,9 @@ export const CatalogForm = ({ carId }: Props) => {
   const router = useRouter();
   const { draft, setDraft, clearDraft } = useCarDraftStore();
 
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState<Date | null>(null);
   const [isOpen, setIsOpen] = useState(false);
-  const wrapperRef = useRef(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
   const formatted = date
     ? date.toLocaleDateString("en-US", {
@@ -35,17 +36,32 @@ export const CatalogForm = ({ carId }: Props) => {
         month: "short",
         year: "numeric",
       })
+    : draft.date
+    ? new Date(draft.date).toLocaleDateString("en-US", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      })
     : "";
 
-  const handleBlur = (e) => {
-    if (!wrapperRef.current.contains(e.relatedTarget)) {
+  const handleBlur = (e: React.FocusEvent<HTMLDivElement>) => {
+    if (
+      wrapperRef.current &&
+      !wrapperRef.current.contains(e.relatedTarget as Node)
+    ) {
       setIsOpen(false);
     }
   };
 
-  const handleChangeDate = (value) => {
-    setDate(value);
-    setIsOpen(false);
+  const handleChangeDate = (value: Value) => {
+    if (value instanceof Date) {
+      setDate(value);
+      setDraft({
+        ...draft,
+        date: value.toISOString(),
+      });
+      setIsOpen(false);
+    }
   };
 
   const handleChange = (
@@ -61,9 +77,9 @@ export const CatalogForm = ({ carId }: Props) => {
   };
 
   const { mutate } = useMutation<
-    void, // тип даних, що повертає сервер (можна void)
-    unknown, // тип помилки
-    NewCarData & { categoryId: string } // тип даних, які передаємо у mutate
+    void,
+    unknown,
+    NewCarData & { categoryId: string }
   >({
     mutationFn: (data) => {
       console.log("Отримані дані:", data);
@@ -79,6 +95,7 @@ export const CatalogForm = ({ carId }: Props) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     const values = Object.fromEntries(formData) as NewCarData;
+    console.log("values:", values);
 
     mutate({
       ...values,
@@ -100,6 +117,7 @@ export const CatalogForm = ({ carId }: Props) => {
             name="name"
             placeholder="Name*"
             className={css.input}
+            value={draft.name}
             onChange={handleChange}
             required
           />
@@ -111,6 +129,7 @@ export const CatalogForm = ({ carId }: Props) => {
             name="email"
             className={css.input}
             placeholder="Email*"
+            value={draft.email}
             onChange={handleChange}
             required
           />
@@ -129,7 +148,7 @@ export const CatalogForm = ({ carId }: Props) => {
               placeholder="Booking date"
               className={css.input}
               readOnly
-              value={formatted}
+              value={formatted || draft.date}
               onFocus={() => setIsOpen(true)}
               onChange={handleChange}
               required
@@ -153,15 +172,12 @@ export const CatalogForm = ({ carId }: Props) => {
             name="comment"
             placeholder="Comment"
             className={css.textarea}
+            value={draft.comment}
             onChange={handleChange}
           />
         </label>
 
-        <button
-          type="submit"
-          className={css.submitButton}
-          // onClick={handleCancel}
-        >
+        <button type="submit" className={css.submitButton}>
           Send
         </button>
       </form>

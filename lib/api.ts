@@ -52,3 +52,8 @@ export async function getCar(id: string) {
   const res = await axios.get(`/cars/${id}`);
   return res.data;
 }
+
+export async function getBrands() {
+  const res = await axios.get('/brands');
+  return res.data;
+}

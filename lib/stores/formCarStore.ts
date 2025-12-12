@@ -4,7 +4,7 @@ import { persist } from 'zustand/middleware';
 
 type CarDraftStore = {
   draft: NewCarData;
-  setDraft: (note: NewCarData) => void;
+  setDraft: (carForm: NewCarData) => void;
   clearDraft: () => void;
 };
 
@@ -20,11 +20,11 @@ export const useCarDraftStore = create<CarDraftStore>()(
   persist(
     (set) => ({
       draft: initialDraft,
-      setDraft: (note) => set(() => ({ draft: note })),
+      setDraft: (carForm) => set(() => ({ draft: carForm })),
       clearDraft: () => set(() => ({ draft: initialDraft })),
     }),
     {
-      name: 'note-draft',
+      name: 'car-draft',
       partialize: (state) => ({ draft: state.draft }),
     },
   ),

@@ -1,6 +1,8 @@
 import CarsList from "@/components/CarsList/CarsList";
 import { getCars } from "@/lib/api";
 import css from "./Catalog.module.css";
+import FilterCars from "@/components/FilterCars/FilterCars";
+// import { FilterCars } from "@/components/FilterCars/FilterCars";
 
 const Catalog = async () => {
   const response = await getCars();
@@ -11,7 +13,7 @@ const Catalog = async () => {
   return (
     <section className={css.sectionCatalog}>
       <div className="container">
-        <p>Filter</p>
+        <FilterCars />
         <CarsList cars={response.cars} />
         <button
           className={css.cartListBtn}
